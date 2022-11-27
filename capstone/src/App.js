@@ -1,22 +1,29 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Sidebar from "./components/Sidebar";
-import Dashbord from "./pages/Dashbord";
+import Dashboard from "./pages/Dashboard";
 import Scanning from "./pages/Scanning";
 import Monitoring from "./pages/Monitoring";
+import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import { Link } from "react-router-dom";
+import ButtonAppBar from "./ButtonAppBar";
 
 export default function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Sidebar></Sidebar>
-        <Routes>
-          <Route path="/" exact component={Dashbord} />
-          <Route path="/scan" component={Scanning} />
-          <Route path="/monitor" component={Monitoring} />
-        </Routes>
-      </BrowserRouter>
+      <ButtonAppBar />
+      <br></br>
+      <Sidebar>
+        <Menu>
+          <MenuItem> Dashboard </MenuItem>
+          <SubMenu label="Scanning">
+            <MenuItem> Start-Scanning </MenuItem>
+            <MenuItem> Recent Report </MenuItem>
+          </SubMenu>
+
+          <MenuItem> Monitoring </MenuItem>
+        </Menu>
+      </Sidebar>
     </div>
   );
 }
