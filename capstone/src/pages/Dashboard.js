@@ -1,11 +1,7 @@
 import React from "react";
 
 function Dashboard() {
-  return (
-    <center>
-      <h1>대쉬보드</h1>
-    </center>
-  );
+  return <h1>대쉬보드</h1>;
 }
 
 export default Dashboard;

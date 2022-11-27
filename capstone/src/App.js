@@ -1,29 +1,27 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { Route, Routes, Link } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import Scanning from "./pages/Scanning";
 import Monitoring from "./pages/Monitoring";
-import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-import { Link } from "react-router-dom";
-import ButtonAppBar from "./ButtonAppBar";
+import Scanning from "./pages/Scanning";
+import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 
-export default function App() {
+const App = () => {
   return (
-    <div className="App">
-      <ButtonAppBar />
-      <br></br>
+    <div>
       <Sidebar>
         <Menu>
-          <MenuItem> Dashboard </MenuItem>
-          <SubMenu label="Scanning">
-            <MenuItem> Start-Scanning </MenuItem>
-            <MenuItem> Recent Report </MenuItem>
-          </SubMenu>
-
-          <MenuItem> Monitoring </MenuItem>
+          <MenuItem>Documentation</MenuItem>
+          <MenuItem> Calendar</MenuItem>
+          <MenuItem>E-commerce</MenuItem>
         </Menu>
       </Sidebar>
+
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/scan" element={<Scanning />} />
+        <Route path="/monitor" element={<Monitoring />} />
+      </Routes>
     </div>
   );
-}
+};
+
+export default App;
