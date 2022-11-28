@@ -14,8 +14,10 @@ function Monitoring() {
           <Menu>
             <MenuItem routerLink={<Link to="/"></Link>}> Dashboard </MenuItem>
             <SubMenu label="Scanning">
-              <MenuItem routerLink={<Link to="/scan"></Link>}> 옵션1</MenuItem>
-              <MenuItem> 옵션2 </MenuItem>
+              <MenuItem routerLink={<Link to="/scan"></Link>}>
+                Start Scanning
+              </MenuItem>
+              <MenuItem> Recent Report </MenuItem>
             </SubMenu>
 
             <MenuItem routerLink={<Link to="/monitor"></Link>}>

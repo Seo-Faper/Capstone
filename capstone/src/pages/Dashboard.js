@@ -8,7 +8,7 @@ const Dashboard = () => {
       <ButtonAppBar></ButtonAppBar>
       <br></br>
       <div className="Sidebar">
-        <Sidebar>
+        <Sidebar className="Sidebar">
           <Menu>
             <MenuItem routerLink={<Link to="/"></Link>}> Dashboard </MenuItem>
             <SubMenu label="Scanning">
