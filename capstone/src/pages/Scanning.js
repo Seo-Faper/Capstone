@@ -1,7 +1,31 @@
 import React from "react";
-
+import ButtonAppBar from "../ButtonAppBar";
+import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import { Link } from "react-router-dom";
+import "../index.css";
 function Scanning() {
-  return <h1>스캐닝</h1>;
+  return (
+    <div>
+      <ButtonAppBar></ButtonAppBar>
+      <br></br>
+      <div className="Sidebar">
+        <Sidebar>
+          <Menu>
+            <MenuItem routerLink={<Link to="/"></Link>}> Dashboard </MenuItem>
+            <SubMenu label="Scanning">
+              <MenuItem routerLink={<Link to="/scan"></Link>}> 옵션1</MenuItem>
+              <MenuItem> 옵션2 </MenuItem>
+            </SubMenu>
+
+            <MenuItem routerLink={<Link to="/monitor"></Link>}>
+              Monitoring
+            </MenuItem>
+          </Menu>
+        </Sidebar>
+        <h1>스캐닝 페이지 입니다.</h1>
+      </div>
+    </div>
+  );
 }
 
 export default Scanning;
