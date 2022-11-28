@@ -20,7 +20,7 @@ code {
 }
 .Recent-Scanning {
   margin: 15px;
-  height: 85%;
+  height: 90%;
   width: 30%;
 }
 .IAM {
@@ -30,11 +30,11 @@ code {
 
 .IAM_Info {
   margin: 15px;
-  height: 50%;
+  height: 70%;
 }
 
 .IAM_Change {
   padding-top: 30px;
   margin: 15px;
-  height: 50%;
+  height: 30%;
 }

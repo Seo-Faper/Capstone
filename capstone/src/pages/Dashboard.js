@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import DenseTable from "../DenseTable";
 import { width } from "@mui/system";
+import { Button, ButtonGroup, Stack } from "@mui/material";
 
 const Dashboard = () => {
   return (
@@ -19,7 +20,7 @@ const Dashboard = () => {
               sx={{
                 backgroundColor: "#EEEEF2",
 
-                height: "100%",
+                height: "95%",
                 padding: "15px",
                 borderRadius: "10px",
               }}
@@ -51,11 +52,48 @@ const Dashboard = () => {
                   backgroundColor: "#EEEEF2",
                   padding: "20px",
                   marginTop: "10px",
-                  height: "85%",
+                  height: "75%",
                   borderRadius: "10px",
                 }}
               >
                 <h2>변동사항</h2>
+                <Container maxWidth="lx" fixed>
+                  <Box
+                    sx={{
+                      bgcolor: "white",
+                      width: "100%",
+                      padding: "10px",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    <Stack spacing={2} direction="row">
+                      <ButtonGroup size="large" sx={{ paddingLeft: "30px" }}>
+                        <Button variant="text" color="primary">
+                          총 계정
+                        </Button>
+                        <Button variant="contained" color="warning">
+                          0
+                        </Button>
+                      </ButtonGroup>
+                      <ButtonGroup>
+                        <Button variant="text" color="primary">
+                          계정 생성
+                        </Button>
+                        <Button variant="contained" color="success">
+                          0
+                        </Button>
+                      </ButtonGroup>
+                      <ButtonGroup>
+                        <Button variant="text" color="primary">
+                          계정 삭제
+                        </Button>
+                        <Button variant="contained" color="primary">
+                          0
+                        </Button>
+                      </ButtonGroup>
+                    </Stack>
+                  </Box>
+                </Container>
               </Box>
             </div>
           </div>
