@@ -40,5 +40,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://112.168.85.171:8000"
+  
 }
