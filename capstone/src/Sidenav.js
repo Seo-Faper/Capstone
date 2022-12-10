@@ -9,10 +9,10 @@ const Sidenav = () => {
         <Menu>
           <MenuItem routerLink={<Link to="/"></Link>}> Dashboard </MenuItem>
           <SubMenu label="Scanning">
-            <MenuItem routerLink={<Link to="/scan"></Link>}>
+            <MenuItem routerLink={<Link to="/scan1"></Link>}>
               Start Scanning
             </MenuItem>
-            <MenuItem> Recent Report </MenuItem>
+            <MenuItem routerLink={<Link to="/scan2"></Link>}> Recent Report </MenuItem>
           </SubMenu>
 
           <MenuItem routerLink={<Link to="/monitor"></Link>}>
