@@ -15,9 +15,9 @@ export default function DenseTable() {
       });
   };
   fetchData();
-  console.log(data);
+  //console.log(data);
   const tableRows = data.map((item, index) => {
-    console.log(item);
+   // console.log(item);
     <SnackbarContent
       message={item.Date}
       action={
