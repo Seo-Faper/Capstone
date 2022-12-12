@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import DenseTable from "../DenseTable";
 import { Button, ButtonGroup, Stack } from "@mui/material";
+import Barchart from "../Barchart";
 
 const Dashboard = () => {
   return (
@@ -42,6 +43,7 @@ const Dashboard = () => {
                 }}
               >
                 <h2>IAM 활동</h2>
+                <Barchart></Barchart>
               </Box>
             </div>
             <div className="IAM_Change">
