@@ -9,7 +9,7 @@ function Monitoring() {
       <ButtonAppBar></ButtonAppBar>
       <div className="Sidebar">
         <Sidenav></Sidenav>
-        <h1>모니터링 페이지 입니다.</h1>
+        <h1>모니터링 페이지 입니다?</h1>
       </div>
     </div>
   );
