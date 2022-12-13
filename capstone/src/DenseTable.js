@@ -3,8 +3,8 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import SnackbarContent from "@mui/material/SnackbarContent";
 import { ButtonGroup } from "@mui/material";
-
-export default function DenseTable() {
+import json_data from "./Dashboard_Report.json"
+export default function DenseTable(e) {
   const [data, setData] = useState([]);
   const fetchData = () => {
     /*
@@ -18,38 +18,7 @@ export default function DenseTable() {
     };
   //fetchData();
   useEffect(()=>{
-    setData([
-      {
-          "Date": "2022-11-24",
-          "Checked": 12,
-          "Detected": 4
-      },
-      {
-          "Date": "2022-11-23",
-          "Checked": 8,
-          "Detected": 0
-      },
-      {
-        "Date": "2022-11-30",
-        "Checked": 5,
-        "Detected": 7
-    },
-    {
-      "Date": "2022-12-01",
-      "Checked": 6,
-      "Detected": 7
-  },
-  {
-    "Date": "2022-12-02",
-    "Checked": 6,
-    "Detected": 10
-},
-{
-  "Date": "2022-12-04",
-  "Checked": 15,
-  "Detected": 27
-},
-  ]);
+    setData(e.report);
   },[]);
 
   console.log(data);

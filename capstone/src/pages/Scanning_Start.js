@@ -20,7 +20,6 @@ import IconButton from '@mui/material/IconButton';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import LinearProgress from '@mui/material/LinearProgress';
 
 function Scanning_Start() {
   const theme = useTheme();
@@ -139,8 +138,8 @@ function Scanning_Start() {
         <div style={{height: 900, overflow: "auto", width: '70%'}}>
           <Menu>{
           Array.from(Object.keys(data.ScanningList)).map((e,i)=>(
-            <Typography component="div" variant="h5"><SubMenu label={e+" ("+count[i].length+"/"+data.ScanningList[e].length+")"}>
-            <MenuItem style={{height: "100%" }} id="list-item">
+            <Typography component="div" variant="h5"><SubMenu label={e+" ("+count[i].length+"/"+data.ScanningList[e].length+")"} style={{marginRight:15}}>
+            <MenuItem style={{height: "100%", }} id="list-item">
               <CheckList tagName={data.ScanningList[e]} setCount={setCount} index={i}></CheckList>
             </MenuItem>
           </SubMenu>
