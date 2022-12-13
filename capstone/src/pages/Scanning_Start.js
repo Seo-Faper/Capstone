@@ -7,21 +7,18 @@ import Paper from '@mui/material/Paper';
 import { Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { useTheme } from '@mui/material/styles';
 import data from "../scanning_data.json"
-import request from "../scanning_request.json"
 import CheckList from "../CheckList";
 
-import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import SnackbarContent from '@mui/material/SnackbarContent';
 import { Typography } from "@mui/material";
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
+
 import IconButton from '@mui/material/IconButton';
-import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import SkipNextIcon from '@mui/icons-material/SkipNext';
+
 
 function Scanning_Start() {
   const theme = useTheme();
