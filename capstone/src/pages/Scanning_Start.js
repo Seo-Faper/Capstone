@@ -1,32 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import ButtonAppBar from "../ButtonAppBar";
 import "../index.css";
 import Sidenav from "../Sidenav";
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import { useTheme } from '@mui/material/styles';
 import data from "../scanning_data.json"
 import request from "../scanning_request.json"
+import CheckList from "../CheckList";
+
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import SnackbarContent from '@mui/material/SnackbarContent';
+import { Typography } from "@mui/material";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import IconButton from '@mui/material/IconButton';
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import SkipNextIcon from '@mui/icons-material/SkipNext';
+
 function Scanning_Start() {
-  console.log(data)
-  const [checked, setChecked] = React.useState([true, false]);
-
-  const handleChange1 = (event) => {
-    setChecked([event.target.checked, event.target.checked]);
+  const theme = useTheme();
+  let request_body = { "checkedCount": 0,
+  "checkedList": [[]
+  ]
+}
+  const [count, setCount] = useState([[],[],[],[],[],[],[],[],[]]);
+  const resultCount=()=> {
+    let sum = 0;
+    for(var i = 0; i<9; i++){
+      sum +=count[i].length;
+    }
+    return sum;
   };
+  const resultPrint = (
+    <Typography component="div" variant="h5">
+    {resultCount()+" 개 선택됨"}
+  </Typography>
 
-  const handleChange2 = (event) => {
-    setChecked([event.target.checked, checked[1]]);
-  };
-
-  const handleChange3 = (event) => {
-    setChecked([checked[0], event.target.checked]);
-  };
-
-
-  console.log(data.ScanningList.Certificate);
+  );
+  const action = (
+    <Button color="secondary" size="small">
+      lorem ipsum dolorem
+    </Button>
+  );
   return (
     <div>
       <ButtonAppBar></ButtonAppBar>
@@ -37,121 +58,51 @@ function Scanning_Start() {
           m: 1,
           padding: '10px',
           width: '100%',
-          height: '90%',
+          height: '100%',
         
       }}
     >
       <Paper elevation={3}
-      sx={{height: '100%'}}>
-  <Menu>
-    <SubMenu label={<FormControlLabel
-    label="Credential"
-    control={
-      <Checkbox
-        checked={checked[0] && checked[1]}
-        indeterminate={checked[0] !== checked[1]}
-        onChange={handleChange1}
-      />
-    }
-  />}>
+      sx={{height: '100%', display:"flex"}}>
+        <div style={{height: 900, overflow: "auto", width: '70%'}}>
+          <Menu>{
+          Array.from(Object.keys(data.ScanningList)).map((e,i)=>(
+            <Typography component="div" variant="h5"><SubMenu label={e+" ("+count[i].length+"/"+data.ScanningList[e].length+")"}>
+            <MenuItem style={{height: "100%" }} id="list-item">
+              <CheckList tagName={data.ScanningList[e]} setCount={setCount} index={i}></CheckList>
+            </MenuItem>
+          </SubMenu>
+          </Typography>
+          ))
+          }
+          </Menu>
 
-      {
-      Array.from(data.ScanningList.Credential).map((e,index)=>(
-        
-      <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>  
-      <MenuItem><FormControlLabel
-        label={e.id+"\t"+e.Description+"\t"+e.Detail}
-        control={<Checkbox checked={checked[index]} onChange={handleChange2} />}
-        
-      /></MenuItem>
-    </Box>
-      ))   
+        </div>
+        <div style={{width: "30%", display:"flex"}}>
+          <Paper elevation={3}
+          sx={{width: "100%"}}>
+            
+                <Stack spacing={2} sx={{ maxWidth: 600, padding: 5}}>
+      <SnackbarContent message={resultPrint} />
+      <Card sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+          
+          <IconButton aria-label="play/pause">
+            <PlayArrowIcon sx={{ height: 50, width: 50 }} />
+          </IconButton>
+          <Typography component="div" variant="h5">
+            Start Scanning
+          </Typography>
+        </Box>
+      </Box>
+    </Card>
+    </Stack>
+    </Paper>
+  </div>
+</Paper>
 
-    
-    }
-    </SubMenu>
-    <SubMenu label={<FormControlLabel
-    label="MFA"
-    control={
-      <Checkbox
-        checked={checked[0] && checked[1]}
-        indeterminate={checked[0] !== checked[1]}
-        onChange={handleChange1}
-      />
-    }
-  />}>
-
-      {
-      Array.from(data.ScanningList.MFA).map((e,index)=>(
-        
-      <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>  
-      <MenuItem><FormControlLabel
-        label={e.id+"\t"+e.Description+"\t"+e.Detail}
-        control={<Checkbox checked={checked[index]} onChange={handleChange2} />}
-        
-      /></MenuItem>
-    </Box>
-      ))   
-
-    
-    }
-    </SubMenu>
-    <SubMenu label={<FormControlLabel
-    label="PW"
-    control={
-      <Checkbox
-        checked={checked[0] && checked[1]}
-        indeterminate={checked[0] !== checked[1]}
-        onChange={handleChange1}
-      />
-    }
-  />}>
-
-      {
-      Array.from(data.ScanningList.PW).map((e,index)=>(
-        
-      <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>  
-      <MenuItem><FormControlLabel
-        label={e.id+"\t"+e.Description+"\t"+e.Detail}
-        control={<Checkbox checked={checked[index]} onChange={handleChange2} />}
-        
-      /></MenuItem>
-    </Box>
-      ))   
-
-    
-    }
-    </SubMenu>
-    <SubMenu label={<FormControlLabel
-    label="Certificate"
-    control={
-      <Checkbox
-        checked={checked[0] && checked[1]}
-        indeterminate={checked[0] !== checked[1]}
-        onChange={handleChange1}
-      />
-    }
-  />}>
-
-      {
-      Array.from(data.ScanningList.Certificate).map((e,index)=>(
-        
-      <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>  
-      <MenuItem><FormControlLabel
-        label={e.id+"\t"+e.Description+"\t"+e.Detail}
-        control={<Checkbox checked={checked[index]} onChange={handleChange2} />}
-        
-      /></MenuItem>
-    </Box>
-      ))   
-
-    
-    }
-    </SubMenu>
-  </Menu>
-      
-        </Paper>
-    </Box>
+</Box>
       </div>
     </div>
   );

@@ -38,3 +38,7 @@ code {
   margin: 15px;
   height: 30%;
 }
+#list-item:hover{
+  background-color: white;
+  cursor: default;
+}
