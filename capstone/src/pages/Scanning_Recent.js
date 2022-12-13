@@ -8,7 +8,7 @@ function Scanning_Recent() {
       <ButtonAppBar></ButtonAppBar>
       <div className="Sidebar">
         <Sidenav></Sidenav>
-        <h1>Recent Report 페이지 입니다.</h1>
+        
       </div>
     </div>
   );
