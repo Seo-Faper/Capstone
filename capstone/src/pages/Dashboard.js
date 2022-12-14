@@ -6,7 +6,8 @@ import Container from "@mui/material/Container";
 import DenseTable from "../DenseTable";
 import { Button, ButtonGroup, Stack } from "@mui/material";
 import Barchart from "../Barchart";
-
+import json_data from "../Dashboard_Report.json"
+import { Typography } from "@mui/material";
 const Dashboard = () => {
   return (
     <div>
@@ -28,7 +29,7 @@ const Dashboard = () => {
                 <h2> 최근 스캐닝 결과</h2>
               </center>
 
-              <DenseTable></DenseTable>
+              <DenseTable report={json_data.RecentReport.Reports}></DenseTable>
             </Box>
           </div>
           <div className="IAM">
@@ -43,7 +44,7 @@ const Dashboard = () => {
                 }}
               >
                 <h2>IAM 활동</h2>
-                <Barchart></Barchart>
+                <Barchart data={json_data.IAMActivities}></Barchart>
               </Box>
             </div>
             <div className="IAM_Change">
@@ -69,26 +70,26 @@ const Dashboard = () => {
                     <Stack spacing={2} direction="row">
                       <ButtonGroup size="large" sx={{ paddingLeft: "30px" }}>
                         <Button variant="text" color="primary">
-                          총 계정
+                        <Typography component="div" variant="h6" style={{color:"black"}}>총 계정</Typography>
                         </Button>
                         <Button variant="contained" color="warning">
-                          0
+                          {json_data.Changes.Total}
                         </Button>
                       </ButtonGroup>
-                      <ButtonGroup>
+                      <ButtonGroup size="large" sx={{ paddingLeft: "30px" }}>
                         <Button variant="text" color="primary">
-                          계정 생성
+                        <Typography component="div" variant="h6" style={{color:"black"}}>계정 생성</Typography>
                         </Button>
                         <Button variant="contained" color="success">
-                          0
+                        {json_data.Changes.Created}
                         </Button>
                       </ButtonGroup>
-                      <ButtonGroup>
+                      <ButtonGroup size="large" sx={{ paddingLeft: "30px" }}>
                         <Button variant="text" color="primary">
-                          계정 삭제
+                        <Typography component="div" variant="h6" style={{color:"black"}}>계정 삭제</Typography>
                         </Button>
                         <Button variant="contained" color="primary">
-                          0
+                        {json_data.Changes.Deleted}
                         </Button>
                       </ButtonGroup>
                     </Stack>

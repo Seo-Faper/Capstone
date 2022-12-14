@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { ResponsiveLine } from "@nivo/line";
-import lineData from "./data.json"
 
-const Barchart = () => {
+
+const Barchart = (e) => {
 
     return (
         // chart height이 100%이기 때문이 chart를 덮는 마크업 요소에 height 설정
         <div style={{ width: '100%', height: '500px', margin: '0 auto' }}>
 <ResponsiveLine
     colors={{ scheme: "dark2" }}
-    data={lineData}
+    data={e.data}
     margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
     xScale={{ type: "point" }}
     yScale={{
