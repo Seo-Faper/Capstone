@@ -9,8 +9,8 @@ export default function ButtonAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Toolbar style={{backgroundColor:"rgb(50, 50, 50)"}}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1}} id="title">
             Capstone Project
           </Typography>
         </Toolbar>

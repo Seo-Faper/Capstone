@@ -76,7 +76,7 @@ const Dashboard = () => {
                           {json_data.Changes.Total}
                         </Button>
                       </ButtonGroup>
-                      <ButtonGroup>
+                      <ButtonGroup size="large" sx={{ paddingLeft: "30px" }}>
                         <Button variant="text" color="primary">
                         <Typography component="div" variant="h6" style={{color:"black"}}>계정 생성</Typography>
                         </Button>
@@ -84,7 +84,7 @@ const Dashboard = () => {
                         {json_data.Changes.Created}
                         </Button>
                       </ButtonGroup>
-                      <ButtonGroup>
+                      <ButtonGroup size="large" sx={{ paddingLeft: "30px" }}>
                         <Button variant="text" color="primary">
                         <Typography component="div" variant="h6" style={{color:"black"}}>계정 삭제</Typography>
                         </Button>

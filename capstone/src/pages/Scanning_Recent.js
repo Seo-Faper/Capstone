@@ -7,8 +7,15 @@ import Paper from '@mui/material/Paper';
 import Container from '@mui/material/Container';
 import { Typography } from "@mui/material";
 import { Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import SnackbarContent from "@mui/material/SnackbarContent";
+import { ButtonGroup } from "@mui/material";
+import data from "../sample.json"
+import Report_Data from "../Report_Data";
 
 function Scanning_Recent() {
+
   return (
     <div>
       <ButtonAppBar></ButtonAppBar>
@@ -35,14 +42,36 @@ function Scanning_Recent() {
           </Box>
           <div style={{width:"100%"}}>
           <Menu>
-          <Typography component="div" variant="h6"><SubMenu label="날짜" style={{backgroundColor: "white"}}>
+        { Array.from(data).map((e)=>(
+          <Typography component="div" variant="h6">
+            <SubMenu id="scan" label={
+            <SnackbarContent
+            message={e.Date}
+            action={<Stack spacing={4} direction="row">
+            <ButtonGroup>
+              <Button variant="contained" color="success">
+                C
+              </Button>
+              <Button variant="text" color="success">
+                {e.Checked}
+              </Button>
+            </ButtonGroup>
+            
+            <ButtonGroup>
+              <Button variant="contained">D</Button>
+              <Button variant="text">{e.Detected}</Button>
+            </ButtonGroup>
+          </Stack>}
+          />
+          } style={{backgroundColor: "white"}}>
                 <MenuItem style={{height: 600}} id="list-item">
-
+                  <Report_Data report={e.report}></Report_Data>
                 </MenuItem>
               </SubMenu>
           </Typography>
-            </Menu>
-          </div>
+          ))}
+        </Menu>
+      </div>
 
       </Container>
           </div>
